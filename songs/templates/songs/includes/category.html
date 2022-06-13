@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="col-lg-4 col-md-12 type-card">  
+  <div class="card text-white bg-primary {{category.card_no}}" >
+    <a href="{% url category.slug %}">
+      <div class="flip-container">
+        <div class="flipper">
+          <div class="front">
+            <img class="lazyload" src="{% static 'songs/images/'|add:category.image %}" alt="">
+          </div>  
+          <div class="back">
+            <h1>{{category.title}}</h1>
+          </div>
+        </div>
+      </div>
+    </a>  
+  </div>
+</div>

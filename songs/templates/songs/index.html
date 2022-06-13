@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'songs/index.css' %}">
+
+{% endblock  %}
+
+
+
+{% block title %}
+    All Songs 
+{% endblock  %}
+
+{% block content %}
+  <h1>All Songs</h1>
+  <h2>Select the song by: </h2>
+  <ul>
+    <li><a href="">Artist</a></li>
+    <li><a href="">Genre</a></li>
+    <li><a href="">Language</a></li>
+  </ul>
+
+  <div class="container-fluid row">
+
+    
+      {% comment %} <div class="col-lg-4 col-md-12 type-card">  
+        <div class="card text-white bg-primary card1" >
+          <a href="">
+            <div class="flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <img class="lazyload" src="{% static 'songs/images/language.png' %}" alt="">
+                </div>  
+                <div class="back">
+                  <h1>Language</h1>
+                </div>
+              </div>
+            </div>
+          </a>  
+        </div>
+      </div>
+    
+      <div class="col-lg-4 col-md-12 type-card">  
+        <div class="card text-white bg-success card2" >
+          <a href="">
+            <div class="flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <img class="lazyload" src="{% static 'songs/images/genre.jpg' %}" alt="">
+                </div>  
+                <div class="back">
+                  <h1>Genre</h1>
+                </div>
+              </div>
+            </div>
+          </a>  
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12 type-card">  
+        <div class="card text-white bg-warning card3" >
+          <a href="">
+            <div class="flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <img class="lazyload" src="{% static 'songs/images/artist.jpg' %}" alt="">
+                </div>  
+                <div class="back">
+                  <h1>Artist</h1>
+                </div>
+              </div>
+            </div>
+          </a>  
+        </div>
+      </div> {% endcomment %}
+  {% for category in all_categories %}
+      {% include "songs/includes/category.html" %}
+  {% endfor %}
+
+
+  </div>
+
+
+
+{% endblock  %}
