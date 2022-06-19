@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  All Songs
+{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'songs/song_template.css' %}">
+{% endblock css_files %}
+
+
+{% block content %}
+  <h1>All Songs</h1>
+
+  <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active" data-interval="5000">
+        <div class="cards-wrapper flex-container d-flex justify-content-around ">
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/song_img1.jpg' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/song_img2.jpg' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/song_img3.jpg' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="carousel-item" data-interval="5000">
+        <div class="cards-wrapper flex-container d-flex justify-content-around ">
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/artist.jpg' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/language.jpg' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/song_img3.jpg' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+
+      <div class="carousel-item" data-interval="5000">
+        <div class="cards-wrapper flex-container d-flex justify-content-around ">
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/artist.jpg' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/artist1.webp' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+
+          <a href="">
+            <div class="card border-dark rounded ">
+              <img class="lazyload card-img-top" src="{% static 'songs/images/language1.png' %}" alt="...">
+              <div class="card-body">
+                <h2>Song Title</h2>
+                <h3>Artist</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div> 
+
+
+    </div>
+
+    <a class="carousel-control-prev crs-btns" href="#carouselExampleControls" role="button" data-slide="prev">
+      <i class="fas fa-4x fa-chevron-left crs-btns"></i>
+      <span class="sr-only">Previous</span>
+    </a>
+  <a class="carousel-control-next crs-btns" href="#carouselExampleControls" role="button" data-slide="next">
+      <i class="fas fa-4x fa-chevron-right crs-btns"></i>
+      <span class="sr-only">Next</span>
+  </a>
+
+  </div>
+
+
+
+
+  <hr><hr><hr><hr><hr>
+<h1>Hello</h1>
+
+<div class="d-flex justify-content-start"><div class="p-5 bd-highlight">Flex item 1</div>
+<div class="p-5 bd-highlight">Flex item 2</div>
+<div class="p-5 bd-highlight"></div>
+<div class="p-5 bd-highlight">Flex item 4</div>
+</div>
+<div class="d-flex justify-content-end"><p>Flex item 1</p>
+<div class="p-2 bd-highlight">Flex item 2</div>
+<div class="p-2 bd-highlight">Flex item 3</div></div>
+<div class="d-flex justify-content-center"><div class="p-2 bd-highlight">Flex item 1</div>
+<div class="p-2 bd-highlight">Flex item 2</div>
+<div class="p-2 bd-highlight">Flex item 3</div></div>
+<div class="d-flex justify-content-between"><div class="p-2 bd-highlight">Flex item 1</div>
+<div class="p-2 bd-highlight">Flex item 2</div>
+<div class="p-2 bd-highlight">Flex item 3</div></div>
+<div class="d-flex justify-content-around"><div class="p-2 bd-highlight">Flex item 1</div>
+<div class="p-2 bd-highlight">Flex item 2</div>
+<div class="p-2 bd-highlight">Flex item 3</div></div>
+
+{% endblock content %}

@@ -9,17 +9,12 @@
 
 
 {% block title %}
-    All Songs 
+    Playlist 
 {% endblock  %}
 
 {% block content %}
-  <h1>All Songs</h1>
+  <h1><a href={% url "all-songs" %}>All Songs</a></h1>
   <h2>Select the song by: </h2>
-  <ul>
-    <li><a href="">Artist</a></li>
-    <li><a href="">Genre</a></li>
-    <li><a href="">Language</a></li>
-  </ul>
 
   <div class="container-fluid row">
 

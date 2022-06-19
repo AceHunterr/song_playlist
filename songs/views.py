@@ -39,3 +39,6 @@ def songs_by_genre(request):
 
 def songs_by_artist(request):
   return render(request, "songs/songs_by_artist.html")
+
+def all_songs(request):
+  return render(request, "songs/all_songs.html")
