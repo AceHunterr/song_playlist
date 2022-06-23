@@ -1,0 +1,19 @@
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'songs/intro.css' %}">
+{% endblock css_files %}
+
+
+<div class="container-fluid " id="intro-div">
+  <div class="row flex-container" id="inner-div">
+    <div class="col-lg-6 col-md-12">
+      {% comment %} <h1 >Playify</h1> {% endcomment %}
+      <h3 class="big-h " id="left-intro-div">Listen to your favourite music here </h3>
+    </div>
+    <div class="col-lg-6 col-md-12" id="right-intro-div">
+      <img class="lazyload music-img" src="{% static 'songs/images/music.jpg' %}" alt="...">
+
+    </div>
+  </div>
+</div>

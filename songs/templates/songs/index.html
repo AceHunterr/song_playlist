@@ -3,78 +3,26 @@
 
 {% block css_files %}
   <link rel="stylesheet" href="{% static 'songs/index.css' %}">
-
 {% endblock  %}
-
-
 
 {% block title %}
     Playlist 
 {% endblock  %}
 
 {% block content %}
-  <h1><a href={% url "all-songs" %}>All Songs</a></h1>
-  <h2>Select the song by: </h2>
+  {% include "songs/includes/intro.html" %}
 
-  <div class="container-fluid row">
-
+  <div class="container-fluid">
     
-      {% comment %} <div class="col-lg-4 col-md-12 type-card">  
-        <div class="card text-white bg-primary card1" >
-          <a href="">
-            <div class="flip-container">
-              <div class="flipper">
-                <div class="front">
-                  <img class="lazyload" src="{% static 'songs/images/language.png' %}" alt="">
-                </div>  
-                <div class="back">
-                  <h1>Language</h1>
-                </div>
-              </div>
-            </div>
-          </a>  
-        </div>
-      </div>
-    
-      <div class="col-lg-4 col-md-12 type-card">  
-        <div class="card text-white bg-success card2" >
-          <a href="">
-            <div class="flip-container">
-              <div class="flipper">
-                <div class="front">
-                  <img class="lazyload" src="{% static 'songs/images/genre.jpg' %}" alt="">
-                </div>  
-                <div class="back">
-                  <h1>Genre</h1>
-                </div>
-              </div>
-            </div>
-          </a>  
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-12 type-card">  
-        <div class="card text-white bg-warning card3" >
-          <a href="">
-            <div class="flip-container">
-              <div class="flipper">
-                <div class="front">
-                  <img class="lazyload" src="{% static 'songs/images/artist.jpg' %}" alt="">
-                </div>  
-                <div class="back">
-                  <h1>Artist</h1>
-                </div>
-              </div>
-            </div>
-          </a>  
-        </div>
-      </div> {% endcomment %}
-  {% for category in all_categories %}
-      {% include "songs/includes/category.html" %}
-  {% endfor %}
-
-
+    <h2 style="font-size:3rem;">Select the song by: </h2>
   </div>
+
+    <div class="cards-wrapper flex-container d-flex justify-content-around category-container">
+      {% for category in all_categories %}
+          {% include "songs/includes/category.html" %}
+      {% endfor %}
+    </div>
+  
 
 
 

@@ -1,0 +1,40 @@
+<div >
+  <div id="{{carousel.id}}" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+    <!--Carousel Item 1-->
+    <div class="carousel-item active" data-interval="5000">
+      <div class="cards-wrapper flex-container d-flex justify-content-around ">
+        {% for song in songs_list|slice:"3" %}
+          {% include "songs/includes/song_template.html" %}
+        {% endfor %}
+      </div>
+    </div>
+<h1>{{hello}}</h1>
+    <!--Carousel Item 2-->
+    <div class="carousel-item" data-interval="5000">
+      <div class="cards-wrapper flex-container d-flex justify-content-around ">
+        {% for song in songs_list|slice:"3:6" %}
+          {% include "songs/includes/song_template.html" %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!--Carousel Item 3-->
+    <div class="carousel-item" data-interval="5000">
+      <div class="cards-wrapper flex-container d-flex justify-content-around ">
+        {% for song in songs_list|slice:"6:9" %}
+          {% include "songs/includes/song_template.html" %}
+        {% endfor %}
+      </div>
+    </div> 
+  </div>
+
+  <a class="carousel-control-prev crs-btns" href="#{{carousel.id}}" role="button" data-slide="prev">
+    <i class="fas fa-4x fa-chevron-left crs-btns"></i>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next crs-btns" href="#{{carousel.id}}" role="button" data-slide="next">
+      <i class="fas fa-4x fa-chevron-right crs-btns"></i>
+      <span class="sr-only">Next</span>
+  </a>
+</div>

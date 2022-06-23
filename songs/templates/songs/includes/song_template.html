@@ -1,0 +1,11 @@
+{% load static %}
+
+    <a href="">
+      <div class="card border-dark rounded ">
+        <img class="lazyload card-img-top" src="{% static 'songs/images/'|add:song.image %}" alt="...">
+        <div class="card-body">
+          <h2>{{ song.name }}</h2>
+          <h3>{{ song.artist }}</h3>
+        </div>
+      </div>
+    </a>

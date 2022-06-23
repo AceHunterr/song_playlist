@@ -1,0 +1,43 @@
+#intro-div{
+  color: #fff;
+  padding: 2% 7% 5%;
+}
+
+#inner-div{
+  padding: 2%;
+}
+
+.big-h{
+  font-size: 5rem !important;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 1.5rem;
+  word-break: keep-all;
+  text-shadow: 5px 3px 8px #000 !important;
+}
+
+#left-intro-div{
+  padding:2.5rem 1rem 1rem;
+}
+
+#right-intro-div{
+  align-self: center;
+}
+
+.music-img{
+  height: 36rem;
+  width: 30rem;
+  transform: rotate(10deg);
+  border-radius: 10%;
+}
+
+@media (max-width:960px){
+  .big-h{
+    font-size: 3rem !important;
+  }
+  .music-img{
+    transform: rotate(0);
+    transform: scale(0.8);
+    /* height: 20rem;
+    width: 16rem; */
+  }
+}
