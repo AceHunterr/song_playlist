@@ -1,0 +1,27 @@
+<div id="accordion" class="p-5" >
+  <ul>
+  {% for items in sorted_list %}
+    <li>
+    <div class="card" style="border:0px" >
+      <div class="card-header" id="{{items.key}}">
+        <h2 class="mb-0" class="heading">
+          <button class="btn btn-link btn-cat" data-toggle="collapse" data-target="#{{items.key|slugify}}" aria-expanded="true" aria-controls="{{items.key|slugify}}">
+            {{items.key}}
+          </button>
+        </h2>
+      </div>
+
+      <div id="{{items.key|slugify}}" class="collapse" aria-labelledby="{{items.key}}" data-parent="#accordion">
+        <div class="card-body">
+          <ul>
+            {% for k in items.value %}
+              <li>{{k.name}}</li>
+              {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  </li>
+  {% endfor %}
+</ul>
+</div>

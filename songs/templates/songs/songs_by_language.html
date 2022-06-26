@@ -2,10 +2,14 @@
 {% load static %}
 
 {% block title  %}
-  Languages
+  Genre
 {% endblock  %}
 
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'songs/accordion.css' %}">
+{% endblock css_files %}
+
 {% block content %}
-  Songs by Language
-  <h1>{{sorted_list}}</h1>
+  <h2 style="font-size:2.5rem; padding: 2% 4% 0%;">Songs by Language</h1>
+  {% include "songs/includes/accordion.html" %}
 {% endblock %}

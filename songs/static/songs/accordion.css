@@ -1,0 +1,33 @@
+.card{
+  background-color: #C2DED1;
+  border:5px;
+  box-shadow: none;
+}
+
+.card-header{
+  padding: 0;
+  background-color:#C2DED1 ;
+  border-bottom: 0;
+}
+
+.btn-cat{
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem;  
+  transition-timing-function: ease-in;
+  transition: 0.7s;
+}
+
+.btn-cat:active,
+.btn-cat:hover{
+  text-decoration: none;
+  color: initial;
+  transform: scale(1.35);
+}
+.card-body{
+  padding: 0 1% 0;
+}
+
+ul{
+  font-size: 1.2rem;
+}
