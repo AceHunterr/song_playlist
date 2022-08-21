@@ -1,5 +1,5 @@
 # Youtube Current Trending : Enter country and returns top 10 current trending videos
-from build import youtube
+from .build import youtube
 import pycountry
 
 def youtube_current_trending(entered_country):

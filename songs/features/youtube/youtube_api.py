@@ -1,12 +1,12 @@
 # Youtube Duration finder in Playlist : Enter playlist link and returns the total duration of playlist
-from build import youtube
+from .build import youtube
 from time import time
 import re
 from datetime import timedelta
 
 def youtube_duration_finder(playlist_link):
 
-
+    nextPageToken= None
     # playlist_link = "https://youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS"
     x = re.split("list=", playlist_link)
     playlist_id = x[-1]

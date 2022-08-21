@@ -1,6 +1,6 @@
 # Youtube Trending in Playlist : Enter playlist link and returns the top videos of that playlist
 
-from build import youtube
+from .build import youtube
 import re
 
 def youtube_trending_playlist(playlist_link):

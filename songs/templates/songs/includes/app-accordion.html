@@ -14,9 +14,32 @@
   
         <div id="{{items.key|slugify}}" class="collapse" aria-labelledby="{{items.key}}" data-parent="#accordion">
           <div class="card-body">
+            
             <ul>
                 <li>{{items.value.description}}</li>
+                <!-- <li>{{items.value.required_params}}</li>  -->
+                <!-- <li>Go here <a href="{% url 'yt-input' %}">link</a></li>  -->
           </ul>
+          <section id="comment-form">
+            <form >
+              {% csrf_token %}
+              {% for form_field in form  %}
+                <div class="form-control  {% if form_field.errors %} invalid {% endif %}">
+                  
+                  {% if form_field.name in items.value.required_params %}
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{form_field.errors}}
+                  {% else %}
+                    <h2>{{form_field.label_tag}} - Not Required</h2>
+                  {% endif %}
+                  
+                </div>
+              {% endfor %}
+              <button>Submit</button>
+            </form>
+          </section>
+        
         </div>
       </div>
     </div>

@@ -29,3 +29,8 @@ class Song(models.Model):
   #         ),
   #     ]
 
+class Yt(models.Model):
+  pl_link = models.CharField(max_length=100)
+  country = models.CharField(max_length=100)
+  date = models.CharField(max_length=10)
+  search = models.CharField(max_length=50)

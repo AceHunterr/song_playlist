@@ -1,7 +1,9 @@
 import py_compile
 from django.shortcuts import render
-from .features.youtube.details import app_details 
+from .features.youtube.details import yt_app_details
 # Create your views here.
+
+from .forms import YtForm
 
 apps=[
     {
@@ -10,22 +12,7 @@ apps=[
     "title": "Spotify",
     "colour" : "green",
     "card_no": "card1",
-    "features":[
-      {
-        "key":"zero",
-        "value":{
-            "title" : "Song Time Traveller",
-            "description" : "zz" 
-          }
-      },
-      {
-        "key":"one",
-        "value":{
-            "title" : "Song Time Traveller-2",
-            "description" : "zz-2"
-          }
-      }
-    ]
+    "features":yt_app_details,
   } ,
   {
     "slug" : "youtube",
@@ -33,7 +20,7 @@ apps=[
     "title": "Youtube",
     "colour" : "red",
     "card_no": "card2",
-    "features":app_details
+    "features":yt_app_details
   },
   {
     "slug" : "reddit",
@@ -41,22 +28,7 @@ apps=[
     "title": "reddit",
     "colour" : "white",
     "card_no": "card3",
-    "features":[
-      {
-        "key":"zero",
-        "value":{
-            "title" : "Song Time Traveller",
-            "description" : "zz" 
-          }
-      },
-      {
-        "key":"one",
-        "value":{
-            "title" : "Song Time Traveller-2",
-            "description" : "zz-2"
-          }
-      }
-    ]
+    "features":yt_app_details
   }
 ]
 
@@ -214,28 +186,35 @@ songs_list_by_artist = sorting_songs("artist",songs_list)
 
 
 def index(request):
-  
   return render(request , "songs/index.html",{
     "apps" : apps
   })
 
 def spotify(request):
   return render(request,"songs/spotify.html",{
-    "features" : apps[0]["features"]
+    "features" : apps[0]["features"],
+    "form" : YtForm
     }
   )
 
 def youtube(request):
   return render(request,"songs/youtube.html",{
-    "features" : apps[1]["features"]
+    "features" : apps[1]["features"],
+    "form" : YtForm
     }
   )
 
 def reddit(request):
   return render(request,"songs/reddit.html",{
-    "features" : apps[2]["features"]
+    "features" : apps[2]["features"],
+    "form" : YtForm
     }
   )
+
+def yt_input(request):
+  return render(request,"songs/yt_input.html",{
+    'var' : "hello"
+  })
 
 
 def category_sorted_page(request):
