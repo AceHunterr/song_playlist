@@ -10,15 +10,15 @@
 {% endblock  %}
 
 {% block content %}
-  {% include "songs/includes/intro.html" %}
+
 
   <div class="container-fluid">
     
-    <h2 style="font-size:3rem;">Select the App: </h2>
+    <h2 style="font-size:3rem;">Select the song by: </h2>
   </div>
 
     <div class="cards-wrapper flex-container d-flex justify-content-around category-container">
-      {% for category in apps %}
+      {% for category in all_categories %}
           {% include "songs/includes/category.html" %}
       {% endfor %}
     </div>

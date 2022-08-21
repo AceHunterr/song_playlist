@@ -1,6 +1,64 @@
+import py_compile
 from django.shortcuts import render
-
+from .features.youtube.details import app_details 
 # Create your views here.
+
+apps=[
+    {
+    "slug" : "spotify",
+    "image": "language.png",
+    "title": "Spotify",
+    "colour" : "green",
+    "card_no": "card1",
+    "features":[
+      {
+        "key":"zero",
+        "value":{
+            "title" : "Song Time Traveller",
+            "description" : "zz" 
+          }
+      },
+      {
+        "key":"one",
+        "value":{
+            "title" : "Song Time Traveller-2",
+            "description" : "zz-2"
+          }
+      }
+    ]
+  } ,
+  {
+    "slug" : "youtube",
+    "image": "genre.jpg",
+    "title": "Youtube",
+    "colour" : "red",
+    "card_no": "card2",
+    "features":app_details
+  },
+  {
+    "slug" : "reddit",
+    "image": "artist.jpg",
+    "title": "reddit",
+    "colour" : "white",
+    "card_no": "card3",
+    "features":[
+      {
+        "key":"zero",
+        "value":{
+            "title" : "Song Time Traveller",
+            "description" : "zz" 
+          }
+      },
+      {
+        "key":"one",
+        "value":{
+            "title" : "Song Time Traveller-2",
+            "description" : "zz-2"
+          }
+      }
+    ]
+  }
+]
 
 all_categories = [
   {
@@ -115,11 +173,6 @@ carousel_list = [
 ]
 
 
-
-artists = []
-
-
-
 def sorting_songs(category,songs_list):
   """Function to sort and make list of songs category wise"""
   cat_items = []
@@ -145,9 +198,6 @@ songs_list_by_language = sorting_songs("language",songs_list)
 songs_list_by_genre = sorting_songs("genre",songs_list)
 songs_list_by_artist = sorting_songs("artist",songs_list)
 
-
-
-
 # for song in songs_list:
 #   for key,value in song.items():
 #     if key=="artist":
@@ -164,7 +214,32 @@ songs_list_by_artist = sorting_songs("artist",songs_list)
 
 
 def index(request):
+  
   return render(request , "songs/index.html",{
+    "apps" : apps
+  })
+
+def spotify(request):
+  return render(request,"songs/spotify.html",{
+    "features" : apps[0]["features"]
+    }
+  )
+
+def youtube(request):
+  return render(request,"songs/youtube.html",{
+    "features" : apps[1]["features"]
+    }
+  )
+
+def reddit(request):
+  return render(request,"songs/reddit.html",{
+    "features" : apps[2]["features"]
+    }
+  )
+
+
+def category_sorted_page(request):
+  return render(request , "songs/category_sorted.html",{
     "all_categories" : all_categories
   })
 

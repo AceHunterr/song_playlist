@@ -3,7 +3,7 @@
   {% for items in sorted_list %}
     <li>
     <div class="card" style="border:0px" >
-      <div class="card-header" id="{{items.key}}">
+      <div class="card-header" id="">
         <h2 class="mb-0" class="heading">
           <button class="btn btn-link btn-cat" data-toggle="collapse" data-target="#{{items.key|slugify}}" aria-expanded="true" aria-controls="{{items.key|slugify}}">
             {{items.key}}

@@ -22,7 +22,7 @@
 .btn-cat:hover{
   text-decoration: none;
   color: initial;
-  transform: scale(1.35);
+  transform: scale(1.15);
 }
 .card-body{
   padding: 0 1% 0;

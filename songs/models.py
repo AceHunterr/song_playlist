@@ -1,12 +1,11 @@
 from django.db import models
 from django.core.validators import RegexValidator
 from django.utils.text import slugify
+from django.db.models.functions import Lower
 
 # Create your models here.
 
 alphanumeric = RegexValidator(r'^[0-9a-zA-Z -]*$', 'Only alphanumeric characters are allowed.')
-
-
 class Song(models.Model):
   name = models.CharField(max_length=30,validators=[alphanumeric])
   slug=models.SlugField(default="",blank=True,null=False,db_index=True)
@@ -21,3 +20,12 @@ class Song(models.Model):
 
   def __str__(self):
     return f"{self.name} by {self.artist}"
+  
+  # class Meta:
+  #     constraints = [
+  #         models.UniqueConstraint(
+  #             Lower('<field name>'),
+  #             name='<constraint name>'
+  #         ),
+  #     ]
+
