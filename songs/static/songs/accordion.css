@@ -67,7 +67,7 @@ ul{
   font-weight: bold;
   margin-bottom: 0.5rem;
   display: block;
-}
+  }
 
 .form-control input,
 .form-control textarea {
@@ -112,4 +112,8 @@ ul{
   color: white;
   padding: 0.25rem 1.5rem;
   border-radius: 6px;
+}
+
+#notrequired{
+  color: rgb(178, 178, 178);
 }

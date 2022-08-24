@@ -11,7 +11,8 @@ yt_app_details = [
             "title" : "Youtube Duration Calculator ",
             "description" : "Enter playlist link and returns the total duration of the playlist",
             "function" : youtube_duration_finder,
-            "required_params" : ["pl_link"]
+            "required_params" : ["pl_link"],
+            "feature_no": 1
         }
     },
     {
@@ -21,7 +22,8 @@ yt_app_details = [
             "title" : "Youtube Trending in Playlist",
             "description" : "Enter playlist link and returns the top videos of that playlist",
             "function" : youtube_trending_playlist,
-            "required_params" : ["pl_link"]
+            "required_params" : ["pl_link"],
+            "feature_no": 2
         }
     },
     {
@@ -31,7 +33,8 @@ yt_app_details = [
             "title" : "Youtube Time Traveller",
             "description" : "Enter country, search keyword and date and returns top 10 trending videos of that time",
             "function" : youtube_time_traveller,
-            "required_params" : ["country","search","date"]
+            "required_params" : ["country","search","date"],
+            "feature_no": 3
         }
     },
     {
@@ -41,7 +44,8 @@ yt_app_details = [
             "title" : "Youtube Current Trending",
             "description" : "Enter country and returns top 10 current trending videos",
             "function" : youtube_current_trending,
-            "required_params" : ["country"]
+            "required_params" : ["country"],
+            "feature_no": 4
         }
     }
 ]

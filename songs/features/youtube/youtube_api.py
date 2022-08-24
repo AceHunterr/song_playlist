@@ -4,11 +4,11 @@ from time import time
 import re
 from datetime import timedelta
 
-def youtube_duration_finder(playlist_link):
+def youtube_duration_finder(pl_link):
 
     nextPageToken= None
-    # playlist_link = "https://youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS"
-    x = re.split("list=", playlist_link)
+    # pl_link = "https://youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS"
+    x = re.split("list=", pl_link)
     playlist_id = x[-1]
 
     hours_pattern = re.compile(r'(\d+)H')

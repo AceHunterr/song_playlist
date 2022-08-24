@@ -4,21 +4,22 @@ import pycountry
 from datetime import datetime
 from google.api_core.datetime_helpers import to_rfc3339
 
-def youtube_time_traveller(entered_country,search,date_entered):
+def youtube_time_traveller(country,search,date):
 
-    # entered_country = "India"
+    # country = "India"
     # search = "cricket"
-    # date_entered = "06/19/2010"
+    # date = "06/19/2010"
 
+    iso_code = "IN"
     for country in pycountry.countries:
         try:
-            if country.name == entered_country:
+            if country.name == country:
                 iso_code = country.alpha_2 
         except KeyError:
                 iso_code = "IN"
 
 
-    datetime_str = f'{date_entered} 23:59:59'
+    datetime_str = f'{date} 23:59:59'
     datetime_object = datetime.strptime(datetime_str, '%m/%d/%Y %H:%M:%S')
     rfc3339_str = to_rfc3339(datetime_object)
 

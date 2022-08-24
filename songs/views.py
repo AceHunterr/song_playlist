@@ -1,6 +1,10 @@
+from django.urls import is_valid_path , reverse
 import py_compile
-from django.shortcuts import render
 from .features.youtube.details import yt_app_details
+from django.http import HttpResponse,HttpResponseRedirect
+from django.shortcuts import render,redirect
+from django.views import View
+
 # Create your views here.
 
 from .forms import YtForm
@@ -197,23 +201,63 @@ def spotify(request):
     }
   )
 
-def youtube(request):
-  return render(request,"songs/youtube.html",{
-    "features" : apps[1]["features"],
-    "form" : YtForm
+
+class YoutubeView(View):
+
+  def feature_result(self,data):
+    for items in yt_app_details:
+      if items["value"]["feature_no"] == data["feature_no"]:
+        feat_function = items["value"]["function"]
+    
+    data.popitem()
+    # for (key,value) in data: 
+    #   pass
+    return feat_function(**data)
+
+  def get(self,request):
+    context = {
+      "features" : apps[1]["features"],
+      "form" : YtForm 
     }
-  )
+    return render(request,"songs/youtube.html",context)
+  
+  def post(self,request):
+    input_form = YtForm(request.POST)
+    if input_form.is_valid():
+      input_form.save()
+    data = input_form.cleaned_data
+    print(data["feature_no"])
+    result = self.feature_result(data)
+    print(result)
+    print(type(result))
+    if type(result) == str:
+      print("string")
+    else:
+      print("list")
+    # return HttpResponseRedirect(reverse("yt_results"),args=[input_form])
+    return render(request, "songs/yt_results.html",{
+      "data": data,
+      "result" : result
+    })
+    # return HttpResponseRedirect(reverse("yt_results"))
+      
+               
+                    
+
 
 def reddit(request):
-  return render(request,"songs/reddit.html",{
+
+  return render(request,"songs/reddit.html",{   
     "features" : apps[2]["features"],
     "form" : YtForm
     }
   )
+  
 
-def yt_input(request):
-  return render(request,"songs/yt_input.html",{
-    'var' : "hello"
+
+def yt_results(request):
+  return render(request,"songs/yt_results.html",{
+    
   })
 
 

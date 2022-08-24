@@ -34,3 +34,4 @@ class Yt(models.Model):
   country = models.CharField(max_length=100)
   date = models.CharField(max_length=10)
   search = models.CharField(max_length=50)
+  feature_no = models.IntegerField()

@@ -17,25 +17,32 @@
             
             <ul>
                 <li>{{items.value.description}}</li>
-                <!-- <li>{{items.value.required_params}}</li>  -->
-                <!-- <li>Go here <a href="{% url 'yt-input' %}">link</a></li>  -->
-          </ul>
+            </ul>
           <section id="comment-form">
-            <form >
+            <form action="{% url 'youtube' %}" method="POST" >
               {% csrf_token %}
-              {% for form_field in form  %}
+              {% for form_field in form %}
                 <div class="form-control  {% if form_field.errors %} invalid {% endif %}">
-                  
-                  {% if form_field.name in items.value.required_params %}
-                    {{ form_field.label_tag }}
-                    {{ form_field }}
-                    {{form_field.errors}}
+
+                  {%if not form_field.name == "feature_no"%}
+
+                    {% if form_field.name in items.value.required_params %}
+                      <h3>{{ form_field.label_tag }} </h3>
+                      {{ form_field }}
+                      {{form_field.errors}}
+                    {% else %}
+                      <h3 id="notrequired">{{form_field.label_tag}} - Not Required</h3>
+                    {% endif %}
                   {% else %}
-                    <h2>{{form_field.label_tag}} - Not Required</h2>
+                  <input type="hidden" name="feature_no" id="feature_no" value="{{ items.value.feature_no }}">
+                  <!-- {{items.value.feature_no}}   -->
                   {% endif %}
                   
-                </div>
+                  <!-- <input type="text" label="Reply"></input> -->
+                </div>  
               {% endfor %}
+                
+              
               <button>Submit</button>
             </form>
           </section>

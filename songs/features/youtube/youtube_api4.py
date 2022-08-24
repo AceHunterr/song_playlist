@@ -2,12 +2,14 @@
 from .build import youtube
 import pycountry
 
-def youtube_current_trending(entered_country):
+def youtube_current_trending(country):
 
-    # entered_country = "India"
+    # country = "India"
+    
+    iso_code = "IN"
     for country in pycountry.countries:
         try:
-            if country.name == entered_country:
+            if country.name == country:
                 iso_code = country.alpha_2 
         except KeyError:
                 iso_code = "IN"

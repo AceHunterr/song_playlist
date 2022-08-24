@@ -3,10 +3,10 @@
 from .build import youtube
 import re
 
-def youtube_trending_playlist(playlist_link):
+def youtube_trending_playlist(pl_link):
 
-    # playlist_link = "https://youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS"
-    x = re.split("list=", playlist_link)
+    # pl_link = "https://youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS"
+    x = re.split("list=", pl_link)
     playlist_id = x[-1]
 
     videos =[]
