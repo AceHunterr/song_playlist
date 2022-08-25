@@ -213,6 +213,20 @@ class YoutubeView(View):
     # for (key,value) in data: 
     #   pass
     return feat_function(**data)
+  
+  def list_pair(self,list):
+    new_list = []
+
+    for i in range(int(0.5*len(list))):
+      print(i)
+      temp_list = []
+      for j in range(2):
+        print(j)
+        temp_list.append(list[(2*i)+j])
+      
+      new_list.append(temp_list)
+
+    return new_list
 
   def get(self,request):
     context = {
@@ -226,19 +240,20 @@ class YoutubeView(View):
     if input_form.is_valid():
       input_form.save()
     data = input_form.cleaned_data
-    print(data["feature_no"])
     result = self.feature_result(data)
-    print(result)
+
     
     if type(result) == str:
       result_data_type = "string"
     else:
       result_data_type = "list"
     # return HttpResponseRedirect(reverse("yt_results"),args=[input_form])
+
     return render(request, "songs/yt_results.html",{
       "data": data,
       "result" : result,
-      "result_data_type" : result_data_type
+      "result_data_type" : result_data_type,
+      "paired_result" : self.list_pair(result)
     })
     # return HttpResponseRedirect(reverse("yt_results"))
       
