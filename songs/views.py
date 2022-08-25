@@ -229,15 +229,16 @@ class YoutubeView(View):
     print(data["feature_no"])
     result = self.feature_result(data)
     print(result)
-    print(type(result))
+    
     if type(result) == str:
-      print("string")
+      result_data_type = "string"
     else:
-      print("list")
+      result_data_type = "list"
     # return HttpResponseRedirect(reverse("yt_results"),args=[input_form])
     return render(request, "songs/yt_results.html",{
       "data": data,
-      "result" : result
+      "result" : result,
+      "result_data_type" : result_data_type
     })
     # return HttpResponseRedirect(reverse("yt_results"))
       

@@ -35,7 +35,8 @@ def youtube_current_trending(country):
             {
                 "views" : int(vid_views),
                 "url" : yt_link,
-                "title": vid_title
+                "title": vid_title,
+                "id": vid_id
             }
         )
 

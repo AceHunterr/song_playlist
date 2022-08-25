@@ -28,22 +28,26 @@ def youtube_trending_playlist(pl_link):
             vid_ids.append(item['contentDetails']['videoId'])
 
         vid_request = youtube.videos().list(
-                part = "statistics",
+                part = ["statistics", "snippet"],
                 id= ','.join(vid_ids)
             )
+        
 
         vid_response = vid_request.execute()
 
         for item in vid_response['items']:
             vid_views = item['statistics']['viewCount']
 
+            vid_title = item["snippet"]["title"]
             vid_id = item['id']
             yt_link = f"https://youtu.be/{vid_id}"
 
             videos.append(
                 {
                     "views" : int(vid_views),
-                    "url" : yt_link
+                    "url" : yt_link,
+                    "id" : vid_id,
+                    "title": vid_title
                 }
             )
 

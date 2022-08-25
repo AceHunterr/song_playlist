@@ -5,12 +5,43 @@
     Youtube
 {% endblock title %}
 
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'songs/song_template.css' %}">
+{% endblock css_files %}
+
+
+
 {% block content %}
-    <h1>sdfsdfsjhsdfhj</h1>
-    Hello
-      {{ data }}
-      {{ result }}
+
+    {% if result_data_type == "string" %}
+        <h2>The duration of the total Playlist : {{result}}</h2>
+    {% else %}
+        <ul>
+            {% for items in result %}
+                <!-- <li>
+                    <a href="{{items.url}}"><img src="https://i.ytimg.com/vi/{{items.id}}/hqdefault.jpg" alt="video"></a>
+                    <h3>{{ items.title }}</h3>
+                    <h4>Views : {{items.views}}</h4>
+                </li> -->
+            <div class="cards-wrapper flex-container d-flex justify-content-around ">
+                <a href="">
+                    <div class="card border-dark rounded ">
+                      <img class="lazyload card-img-top" src="https://i.ytimg.com/vi/{{items.id}}/hqdefault.jpg" alt="...">
+                      <div class="card-body">
+                        <h4>{{ items.title }}</h4>
+                        <h5>Views: {{ items.views }}</h5>
+                      </div>
+                    </div>
+                  </a>
+            </div>
+                
+            {% endfor %}
+        </ul>
+
+    {% endif %}
     
+
     
+    <li></li>
 
 {% endblock content %}
