@@ -39,7 +39,8 @@ def youtube_time_traveller(country,search,date):
 
 
     for item in pl_response['items']:
-        vid_ids.append(item['id']['videoId'])
+        vid_ids.append(item["id"]["videoId"])
+        print(vid_ids)
 
     vid_request = youtube.videos().list(
             part = ["statistics","snippet"],
@@ -65,6 +66,7 @@ def youtube_time_traveller(country,search,date):
         )
 
     videos.sort(key=lambda vid: vid['views'],reverse=True)
+    print(videos)
     return videos
     # for video in videos[:10]:
     #     print(video['url'],video['views'],video['title'])
