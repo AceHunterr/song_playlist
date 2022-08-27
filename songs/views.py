@@ -12,7 +12,7 @@ from .forms import YtForm
 apps=[
     {
     "slug" : "spotify",
-    "image": "language.png",
+    "image": "spotify.png",
     "title": "Spotify",
     "colour" : "green",
     "card_no": "card1",
@@ -20,7 +20,7 @@ apps=[
   } ,
   {
     "slug" : "youtube",
-    "image": "genre.jpg",
+    "image": "youtube.png",
     "title": "Youtube",
     "colour" : "red",
     "card_no": "card2",
@@ -28,8 +28,8 @@ apps=[
   },
   {
     "slug" : "reddit",
-    "image": "artist.jpg",
-    "title": "reddit",
+    "image": "reddit.png",
+    "title": "Reddit",
     "colour" : "white",
     "card_no": "card3",
     "features":yt_app_details
@@ -46,14 +46,14 @@ all_categories = [
   },
   {
     "slug" : "songs-by-genre",
-    "image": "genre.jpg",
+    "image": "genre.png",
     "title": "Genre",
     "colour" : "red",
     "card_no": "card2"
   },
   {
     "slug" : "songs-by-artist",
-    "image": "artist.jpg",
+    "image": "artist.png",
     "title": "Artist",
     "colour" : "green",
     "card_no": "card3"
@@ -302,3 +302,42 @@ def all_songs(request):
     "songs_list" : songs_list,
     "carousel_list" : carousel_list
   })
+
+class SavedView(View):
+  def get(self,request):
+    pass
+  def post(self,request):
+    pass
+
+
+class SavedView(View):
+  def get(self,request):
+    saved = request.session.get("saved")
+    context ={}
+
+    if stored_posts is None or len(stored_posts) == 0:
+      context["posts"] = []
+      context["has_posts"] = False
+    else:
+      posts = Post.objects.filter(id__in=stored_posts)
+      context["posts"] = posts
+      context["has_posts"] = True
+
+    return render(request, "blog/stored-posts.html",context)
+
+
+  def post(self,request):
+    stored_posts = request.session.get("stored_posts")
+
+    if stored_posts is None:
+      stored_posts = [] 
+
+    post_id = int(request.POST["post_id"])
+
+    if post_id not in stored_posts:
+      stored_posts.append(post_id)
+    else:
+      stored_posts.remove(post_id)
+    request.session["stored_posts"] = stored_posts
+    
+    return HttpResponseRedirect("/")

@@ -42,6 +42,26 @@ h4,h5{
   text-shadow: -1px 0 rgb(146, 146, 146), 2px 1px 6px rgb(146, 146, 146), 2px 1px 6px rgb(146, 146, 146), 0 -1px 1px rgb(146, 146, 146);
 }
 
+#saved-later {
+  margin: 2rem 0;
+}
+
+#saved-later button {
+  background-color: transparent;
+  border: 1px solid #000;
+  padding: 0.5rem 2rem;
+  font: inherit;
+  color: #000;
+  cursor: pointer;
+}
+
+#saved-later button:hover,
+#saved-later button:active {
+  background-color: white;
+  color: #390281;
+}
+
+
 #carousel-h{
   font-size: 3.8rem;
   padding: 2% 7% 0;

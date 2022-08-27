@@ -70,7 +70,7 @@
 }
 
 .card1{
-  background-image: url("/static/songs/images/language.png");
+  background-image: url("/static/songs/images/spotify.png");
   /* background-size: 100%;
   object-fit: cover;
   background-repeat: no-repeat; */
@@ -79,7 +79,7 @@ background-size: cover;
 }
 
 .card2{
-  background-image: url("/static/songs/images/genre.png");
+  background-image: url("/static/songs/images/youtube.png");
   /* background-size: 100%;
   object-fit: cover;
   background-repeat: no-repeat; */
@@ -89,9 +89,7 @@ background-size: cover;
 
 
 .card3{
-  background-image: url("/static/songs/images/artist.jpg");
-  /* background-size: 100%; */
-
+  background-image: url("/static/songs/images/reddit.png");
   /* object-fit: cover;
   background-repeat: no-repeat; */
 

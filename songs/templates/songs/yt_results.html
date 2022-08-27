@@ -32,6 +32,20 @@
                                 </div>
                             </div>
                         </a>
+                    
+                        <div id="saved-later">
+                            <form action="{% url 'yt_results' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ items.id }}" name="video_id">
+                            <button>
+                                {% if saved_for_later %}
+                                    Remove from saved 
+                                {% else %}
+                                    Save for Later
+                                {% endif %}
+                            </button>
+                            </form>
+                        </div>
                     </div>
                     
                 {% endfor %}
