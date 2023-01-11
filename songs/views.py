@@ -218,10 +218,9 @@ class YoutubeView(View):
     new_list = []
 
     for i in range(int(0.5*len(list))):
-      print(i)
+
       temp_list = []
       for j in range(2):
-        print(j)
         temp_list.append(list[(2*i)+j])
       
       new_list.append(temp_list)

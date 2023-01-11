@@ -64,7 +64,7 @@
 }
 
 .flipper {
-  -webkit-transition: 1s;
+  -webkit-transition: 1.6s;
   -webkit-transform-style: preserve-3d;
   position: relative;
 }
@@ -83,8 +83,9 @@ background-size: cover;
   /* background-size: 100%;
   object-fit: cover;
   background-repeat: no-repeat; */
+  
   background-repeat: no-repeat;
-background-size: cover;
+  background-size: cover;
 }
 
 
